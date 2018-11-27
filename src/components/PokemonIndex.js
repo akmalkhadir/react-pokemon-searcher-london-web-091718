@@ -27,6 +27,11 @@ class PokemonPage extends React.Component {
    const pokemonsToRender = filter === `` ? pokemons : filteredPokemons
    return pokemonsToRender
  }
+
+  addPokemon = (pokemon) => {
+    this.setState({pokemons: [...this.state.pokemons, pokemon] })
+  }
+
   render() {
     return (
       <div>
@@ -36,7 +41,7 @@ class PokemonPage extends React.Component {
         <br />
         <PokemonCollection pokemons={this.getFilteredPokemons()} />
         <br />
-        <PokemonForm />
+        <PokemonForm addPokemon={this.addPokemon} />
       </div>
     )
   }
